@@ -1,9 +1,10 @@
 package server;
 
 import java.io.*;
-import java.net.*;
-import java.nio.charset.*;
-import java.util.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * This program implements a simple server that listens to port 8189 and echoes back all
@@ -16,7 +17,7 @@ public class EchoServer
    public static void main(String[] args) throws IOException
    {
       // establish server socket
-      try (var s = new ServerSocket(8189))
+      try (ServerSocket s = new ServerSocket(8189))
       {
          // wait for client connection
          try (Socket incoming = s.accept())
@@ -24,9 +25,9 @@ public class EchoServer
             InputStream inStream = incoming.getInputStream();
             OutputStream outStream = incoming.getOutputStream();
    
-            try (var in = new Scanner(inStream, StandardCharsets.UTF_8.name()))
+            try (Scanner in = new Scanner(inStream, StandardCharsets.UTF_8.name()))
             {
-               var out = new PrintWriter(
+               PrintWriter out = new PrintWriter(
                   new OutputStreamWriter(outStream, StandardCharsets.UTF_8),
                   true /* autoFlush */);
       
