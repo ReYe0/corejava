@@ -35,7 +35,7 @@ public class EchoServer
       
                // echo client input
                boolean done = false;
-               while (!done && in.hasNextLine())
+               while (!done && in.hasNextLine())//这里阻塞等待下一行的输入
                {
                   String line = in.nextLine();
                   out.println("Echo: " + line);
