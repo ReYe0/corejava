@@ -1,9 +1,13 @@
 package urlConnection;
 
-import java.io.*;
-import java.net.*;
-import java.nio.charset.*;
-import java.util.*;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * This program connects to an URL and displays the response header data and the first

@@ -20,29 +20,32 @@ public class EchoServer
       try (ServerSocket s = new ServerSocket(8189))
       {
          // wait for client connection
-         try (Socket incoming = s.accept())
-         {
-            InputStream inStream = incoming.getInputStream();
-            OutputStream outStream = incoming.getOutputStream();
-   
-            try (Scanner in = new Scanner(inStream, StandardCharsets.UTF_8.name()))
+         while (true){
+            try (Socket incoming = s.accept())
             {
-               PrintWriter out = new PrintWriter(
-                  new OutputStreamWriter(outStream, StandardCharsets.UTF_8),
-                  true /* autoFlush */);
-      
-               out.println("Hello! Enter BYE to exit.");
-      
-               // echo client input
-               boolean done = false;
-               while (!done && in.hasNextLine())//这里阻塞等待下一行的输入
+               InputStream inStream = incoming.getInputStream();
+               OutputStream outStream = incoming.getOutputStream();
+
+               try (Scanner in = new Scanner(inStream, StandardCharsets.UTF_8.name()))
                {
-                  String line = in.nextLine();
-                  out.println("Echo: " + line);
-                  if (line.trim().equals("BYE")) done = true;
+                  PrintWriter out = new PrintWriter(
+                          new OutputStreamWriter(outStream, StandardCharsets.UTF_8),
+                          true /* autoFlush */);
+
+                  out.println("Hello! Enter BYE to exit.");
+
+                  // echo client input
+                  boolean done = false;
+                  while (!done && in.hasNextLine())//这里阻塞等待下一行的输入
+                  {
+                     String line = in.nextLine();
+                     out.println("Echo: " + line);
+                     if (line.trim().equals("BYE")) done = true;
+                  }
                }
             }
          }
+
       }
    }
 }

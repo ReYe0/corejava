@@ -1,9 +1,10 @@
 package threaded;
 
 import java.io.*;
-import java.net.*;
-import java.nio.charset.*;
-import java.util.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * This program implements a multithreaded server that listens to port 8189 and echoes back 
@@ -68,7 +69,7 @@ class ThreadedEchoHandler implements Runnable
          while (!done && in.hasNextLine())
          {  
             String line = in.nextLine();            
-            out.println("Echo: " + line);            
+            out.println("Echo: " + line);
             if (line.trim().equals("BYE"))
                done = true;
          }

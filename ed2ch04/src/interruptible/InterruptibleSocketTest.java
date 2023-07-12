@@ -1,13 +1,17 @@
 package interruptible;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import java.net.*;
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.channels.*;
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * This program shows how to interrupt a socket channel.
@@ -148,7 +152,7 @@ class InterruptibleSocketFrame extends JFrame
          in = new Scanner(sock.getInputStream(), StandardCharsets.UTF_8.name());
          while (!Thread.currentThread().isInterrupted())
          {
-            messages.append("Reading ");
+            messages.append("Reading(block) ");
             if (in.hasNextLine())
             {
                String line = in.nextLine();

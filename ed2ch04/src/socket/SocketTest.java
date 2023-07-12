@@ -1,9 +1,9 @@
 package socket;
 
-import java.io.*;
-import java.net.*;
-import java.nio.charset.*;
-import java.util.*;
+import java.io.IOException;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * This program makes a socket connection to the atomic clock in Boulder, Colorado, and prints 
