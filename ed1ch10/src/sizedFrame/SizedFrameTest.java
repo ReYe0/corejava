@@ -39,7 +39,7 @@ class SizedFrame extends JFrame
 
       // set frame icon
 
-      Image img = new ImageIcon("icon.gif").getImage();
+      Image img = new ImageIcon("./duke.gif").getImage();
       setIconImage(img);      
    }
 }
