@@ -55,6 +55,7 @@ class ImageViewerFrame extends JFrame
 
       addWindowListener(new WindowAdapter()
       {
+         @Override
          public void windowClosing(WindowEvent event)
          {
             node.putInt("left", getX());

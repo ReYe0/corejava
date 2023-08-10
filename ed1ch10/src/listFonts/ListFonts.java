@@ -13,7 +13,8 @@ public class ListFonts
       String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment()
             .getAvailableFontFamilyNames();
 
-      for (String fontName : fontNames)
+      for (String fontName : fontNames) {
          System.out.println(fontName);
+      }
    }
 }
