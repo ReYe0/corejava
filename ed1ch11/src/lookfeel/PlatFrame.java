@@ -6,7 +6,7 @@ import javax.swing.*;
  * @author xuy
  */
 public class PlatFrame extends JFrame {
-    private JPanel buttonPanel;
+    private final JPanel buttonPanel;
     public PlatFrame(){
         buttonPanel = new JPanel();
         UIManager.LookAndFeelInfo[] infos = UIManager.getInstalledLookAndFeels();
